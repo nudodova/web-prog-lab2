@@ -1,4 +1,4 @@
-from flask import Flask, redirect, url_for, render_template
+from flask import Flask, redirect, url_for
 app = Flask(__name__)
 
 @app.route("/")
@@ -19,14 +19,9 @@ def menu():
         </header>
 
         <h1>НГТУ, ФБ, WEB-программирование 2 часть. Список лабораторных работ</h1>
-        <a href="/menu">Меню</a>
-
-        <h2>Реализованные роуты</h2>
+             
         <li><a href='/lab1'>Лабораторная работа 1</a></li>
-        <li><a href='/lab1/oak'>Дуб</a></li>
-        <li><a href='/lab1/student'>Студент</a></li>
-        <li><a href='/lab1/python'>Python</a></li>
-        <li><a href='/lab1/html'>HTML</a></li>
+        
         <footer>
             &copy; Удодова Анастасия, ФБИ-14,3 курс, 2023
         </footer>
@@ -44,6 +39,7 @@ def lab1():
         <header>
             НГТУ, ФБ, Лабораторная работа 1
         </header>
+        <a href="/menu">Меню</a>
         <h2>Реализованные роуты</h2>
         <li><a href='/lab1/oak'>Дуб</a></li>
         <li><a href='/lab1/student'>Студент</a></li>
