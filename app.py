@@ -1,4 +1,4 @@
-from flask import Flask, redirect, url_for
+from flask import Flask, redirect, url_for, render_template
 app = Flask(__name__)
 
 @app.route("/")
@@ -44,7 +44,11 @@ def lab1():
         <header>
             НГТУ, ФБ, Лабораторная работа 1
         </header>
-
+        <h2>Реализованные роуты</h2>
+        <li><a href='/lab1/oak'>Дуб</a></li>
+        <li><a href='/lab1/student'>Студент</a></li>
+        <li><a href='/lab1/python'>Python</a></li>
+        <li><a href='/lab1/html'>HTML</a></li>
         <h1>WEB-сервер на flask</h1>
         <div>
             Flask — фреймворк для создания веб-приложений на языке
@@ -134,3 +138,7 @@ def html():
     </body>
 </html>
 '''
+
+@app.route('/lab2/example')
+def example():
+    return render_template('example.html')
