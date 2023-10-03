@@ -148,4 +148,18 @@ def example():
         {'name': 'мандарины', 'price':95},
         {'name': 'манго', 'price':321},
     ]   
-    return render_template('example.html', name=name, numberlab=numberlab, group=group, kurs=kurs, fruits=fruits)
+    books = [
+        {'author': 'Михаил Булгаков', 'name': 'Мастер и Маргарита', 'genre': 'роман', 'pages': '400 страниц'},
+        {'author': 'Антуан де Сент-Экзюпери', 'name': 'Маленький принц', 'genre': 'повесть-сказка', 'pages': '160 страниц'},
+        {'author': 'Лев Толстой', 'name': 'Война и мир', 'genre': 'роман-эпопея', 'pages': '1300 страниц'},
+        {'author': 'Федор Достоевский', 'name': 'Преступление и наказание', 'genre': 'роман', 'pages': '592 страниц'},
+        {'author': 'Михаил Лермонтов', 'name': 'Герой нашего времени', 'genre': 'роман', 'pages': '192 страниц'},
+        {'author': 'Александр Пушкин', 'name': 'Евгений Онегин', 'genre': 'роман в стихах', 'pages': '224 страниц'},
+        {'author': 'Габриэль Гарсиа Маркес', 'name': 'Сто лет одиночества', 'genre': 'роман', 'pages': '544 страниц'},
+        {'author': 'Николай Гоголь', 'name': 'Мёртвые души', 'genre': 'поэма', 'pages': '350 страниц'},
+        {'author': 'Лев Толстой', 'name': 'Анна Каренина', 'genre': 'роман', 'pages': '850 страниц'},
+        {'author': 'Эрих Мария Ремарк', 'name': 'Три товарища', 'genre': 'роман', 'pages': '480 страниц'},
+        {'author': 'Маргарет Митчелл', 'name': 'Унесённые ветром', 'genre': 'роман', 'pages': '1400 страниц'},
+        {'author': 'Эрнест Хемингуэй', 'name': 'Старик и море', 'genre': 'повесть', 'pages': '127 страниц'},
+    ]   
+    return render_template('example.html', name=name, numberlab=numberlab, group=group, kurs=kurs, fruits=fruits, books=books)
