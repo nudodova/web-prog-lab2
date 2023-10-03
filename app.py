@@ -163,3 +163,7 @@ def example():
         {'author': 'Эрнест Хемингуэй', 'name': 'Старик и море', 'genre': 'повесть', 'pages': '127 страниц'},
     ]   
     return render_template('example.html', name=name, numberlab=numberlab, group=group, kurs=kurs, fruits=fruits, books=books)
+
+    @app.route('/lab2/')
+    def lab2():
+        return render_template('lab2.html')

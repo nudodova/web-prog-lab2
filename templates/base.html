@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Анастасия Удодова. {% block lab %}{% endblock %}</title>
+</head>
+<body>
+    <header>
+        WEB-программирование, 2 часть. {{ self.lab() }}
+    </header>
+
+    <main>
+        {% block main %}
+        <h1>Шаблоны</h1>
+        <div>Тема лабораторной работы - шаблоны. Список сделанных страниц:</div>
+        <ol>
+            <li>
+                <a href = "/lab2/example">example</a>
+            </li>
+        </ol>
+        {% endblock %}
+    </main>
+
+    <footer>
+        &copy; Анастасия Удодова, ФБИ-14, 3 курс, 2023
+    </footer>
+</body>
+</html>
