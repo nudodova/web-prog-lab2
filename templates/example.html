@@ -3,7 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Анастасия Удодова. {% if numberlab %}Лабораторная работа {% endif %}</title>
+    <title>
+        {% if name %}
+        {{ name }},
+    {% else %}
+        Анонимус,
+    {% endif %}. 
+    {% if numberlab %}Лабораторная работа {{ numberlab }}{% endif %}
+</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}">
 </head>
 <body>
@@ -16,6 +23,11 @@
         11 * 28 = {{ 11 * 28 }}<br>
         8452 / 793 = {{ 8452 / 793 }}<br>
         45 ** 8 = {{ 45 ** 8 }}<br>
+        <ul>
+            {% for f in fruits %}
+            <li>{{f.name}}: {{f.price}} &#x20bd</li>
+            {% endfor %}
+        </ul>
     </main>
 
     <footer>
