@@ -166,4 +166,10 @@ def example():
 
     @app.route('/lab2/')
     def lab2():
+
         return render_template('lab2.html')
+
+    @app.route('/lab2/fashionweek23')
+    def fashionweek():
+
+        return render_template('fashionweek23.html')

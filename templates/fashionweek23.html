@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% block lab %}Fashion Week 2023{% endblock %}
+{% block main %}
+
+    <h1>Обзор Fashion Week 2023</h1>
+
+    <h2>SCHIAPARELLI</h2>
+    <div>Объем, декор и корсеты. Коллекция посвящена сотрудничеству модного дома с художниками. Много отсылок к ДНК бренда, но уже больше свободы и вдохновения из сегодняшнего дня.</div>
+    <div><img src="{{ url_for('static', filename='schiaparelli1.jpeg') }}"></div>
+
+    <h2>IRIS VAN HERPEN</h2>
+    <div>Игра с формами и фактурами. Одежда будущего из соединения архитектуры и природных мотивов.</div>
+    <div><img src="{{ url_for('static', filename='irisvanherpen1.jpeg') }}"></div>
+
+    <h2>ALEXANDRE VAUTHIER</h2>
+    <div>Черный, белый, шоколад и металлик. Сложный крой и сдержанность, элегантность для любителей женственных силуэтов.</div>
+    <div><img src="{{ url_for('static', filename='alexandervauthier1.jpeg') }}"></div>
+
+    <h2>ELIE SAAB</h2>
+    <div>Традиционная для бренда роскошь, блеск и объемный декор. Прекрасные наряды для ковровых дорожек.</div>
+    <div><img src="{{ url_for('static', filename='eliesaab1.jpeg') }}"></div>
+
+    <h2>ZUHAIR MURAD</h2>
+    <div>Роскошная готика: много черного, глубокие приглушенные цвета и высокие перчатки. Несколько платьев из трикотажа, чтобы поиграть с простотой в высокой моде.</div>
+    <div><img src="{{ url_for('static', filename='zuhairmurad1.jpeg') }}"></div>
+
+{% endblock %}
