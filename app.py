@@ -21,7 +21,7 @@ def menu():
         <h1>НГТУ, ФБ, WEB-программирование 2 часть. Список лабораторных работ</h1>
              
         <li><a href='/lab1'>Лабораторная работа 1</a></li>
-        
+        <li><a href='/lab2'>Лабораторная работа 2</a></li>
         <footer>
             &copy; Удодова Анастасия, ФБИ-14,3 курс, 2023
         </footer>
@@ -164,9 +164,9 @@ def example():
     ]   
     return render_template('example.html', name=name, numberlab=numberlab, group=group, kurs=kurs, fruits=fruits, books=books)
 
-    @app.route('/lab2/')
+    @app.route('/lab2')
     def lab2():
-
+        
         return render_template('lab2.html')
 
     @app.route('/lab2/fashionweek23')
