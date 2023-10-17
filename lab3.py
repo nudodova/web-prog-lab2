@@ -23,6 +23,7 @@ def order():
 
 @lab3.route('/lab3/pay')
 def pay():
+    
     price = 0
     drink = request.args.get('drink')
 
@@ -37,4 +38,16 @@ def pay():
         price += 30
     if request.args.get('sugar') == 'on':
         price += 10
-    return render_template('pay.html', price=price)
+
+    errors = {}
+    card = request.args.get('card')
+    if card == '':
+        errors['card'] = 'Заполните поле!'
+    name = request.args.get('name')
+    if name == '':
+        errors['name'] = 'Заполните поле!'
+    cvv = request.args.get('cvv')
+    if cvv == '':
+        errors['cvv'] = 'Заполните поле!'
+    return render_template('pay.html', price=price, card=card, name=name, cvv=cvv, errors=errors)
+
