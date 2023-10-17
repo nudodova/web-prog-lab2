@@ -31,6 +31,7 @@
     <label>Ваш возраст:</label>
     <div>
         <input type="number" name="age" value="{{ age or '' }}">
+        <span class="error">{{ errors.age }}</span>
     </div>
 
     <label>Ваш пол:</label>
