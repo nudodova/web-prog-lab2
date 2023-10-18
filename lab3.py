@@ -51,3 +51,26 @@ def pay():
         errors['cvv'] = 'Заполните поле!'
     return render_template('pay.html', price=price, card=card, name=name, cvv=cvv, errors=errors)
 
+@lab3.route('/lab3/ticket')
+def ticket():
+    errors = {}
+    fio = request.args.get('fio')
+    if fio == '':
+        errors['fio'] = 'Заполните поле!'
+    age = request.args.get('age')
+    if age == '':
+        errors['age'] = 'Заполните поле!'
+    departure = request.args.get('departure')
+    if departure == '':
+        errors['departure'] = 'Заполните поле!'
+    destination = request.args.get('destination')
+    if destination == '':
+        errors['destination'] = 'Заполните поле!'
+    date = request.args.get('date')
+    if date == '':
+        errors['date'] = 'Заполните поле!'
+    typee = request.args.get('typee')
+    berth = request.args.get('berth')
+    luggage = request.args.get('luggage')
+    return render_template('ticket.html', fio=fio, age=age, departure=departure, destination=destination, date=date, typee=typee, berth=berth, luggage=luggage, errors=errors)
+
