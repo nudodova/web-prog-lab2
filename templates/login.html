@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+
+{% block lab %}Лабораторная работа 4{% endblock %}
+
+{% block main %}
+    <h1>Вход</h1>
+    <h2>Пожалуйста, авторизуйтесь</h2>
+    <div><span class="error">{{ error }}</span></div>
+    <form method="post">
+        <div>
+            <label for="username">Пользователь</label>
+            <input type="text" id="username" name="username"  value="{{ username }}">
+        </div>
+        <div>
+            <label for="password">Пароль:</label>
+            <input type="password" id="password" name="password" value="{{ password }}">
+        </div>
+        <div>
+            <button type="submit">Войти</button>
+            <button type="reset">Отмена</button>
+        </div>
+    </form>
+
+    <script>
+        document.querySelector('form').addEventListener('submit', function(event) {
+            var username = document.getElementById('username').value;
+            var password = document.getElementById('password').value;
+    
+            if (username.trim() === '') {
+                event.preventDefault();
+                alert('Не введён логин');
+            }
+    
+            if (password.trim() === '') {
+                event.preventDefault();
+                alert('Не введён пароль');
+            }
+        });
+    </script>
+{% endblock %}
