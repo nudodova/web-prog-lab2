@@ -5,6 +5,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Анастасия Удодова. {% block lab %}{% endblock %}</title>
+    {% if request.cookies.get('color') %}
+    <style>
+        body {
+            color: {{ request.cookies.get('color') }};
+        }
+    </style>
+    {% endif %}
 </head>
 <style>
     .error {
