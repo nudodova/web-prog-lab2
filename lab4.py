@@ -39,3 +39,47 @@ def holodilnik():
         vtemp = f"Установлена температура: {temperature}°C *"
     
     return render_template('holodilnik.html', vtemp=vtemp)
+
+@lab4.route('/lab4/zerno', methods = ['GET', 'POST'])
+def zerno():
+    if request.method == 'GET':
+        return render_template("zerno.html")
+
+    return render_template('zerno.html')
+
+@lab4.route('/lab4/payzerno', methods = ['GET', 'POST'])
+def payzerno():
+    if request.method == 'GET':
+        return render_template("payzerno.html")
+
+    price = 0
+    zerno = request.form.get('zerno')
+    
+    if zerno == 'Ячмень':
+        price = 12000
+    elif zerno == 'Овёс':
+        price = 8500
+    elif zerno == 'Пшеница':
+        price = 8700
+    elif zerno == 'Рожь':
+        price = 14000
+    else:
+        price = 0
+    
+    weight = int(request.form.get('weight'))
+
+    if weight > 50:
+        final_price = (weight * price) - ((weight * price) * 10 / 100)
+        sale = 'Применина скидка 10% за большой объем!'
+    elif weight <= 0:
+        final_price = 'Ошибка!'
+        sale = 'Неверное значение веса!'
+    else:
+        final_price = weight * price
+        sale = 0
+
+    if weight > 500:
+        final_price = 'Ошибка!'
+        sale = 'Такого объема сейчас нет в наличии!'
+    
+    return render_template('payzerno.html', zerno=zerno, price=price, weight=weight, final_price=final_price, sale=sale)
