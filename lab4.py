@@ -89,9 +89,18 @@ def cookies():
     if request.method == 'GET':
         return render_template('cookies.html')
 
-    color = request.form.get('color')
+    text_color = request.form.get('text_color')
+    background_color = request.form.get('background_color')
+    font_size = int(request.form.get('font_size'))
+
+    if text_color == background_color:
+        return 'Ошибка: Цвет текста не может совпадать с цветом фона.'
+    elif font_size < 5 or font_size > 30:
+        return 'Ошибка: Размер шрифта должен быть от 5 до 30 пикселей.'
+    
+
     headers = {
-        'Set-Cookie': 'color=' + color + '; path=/',
+        'Set-Cookie': f'text_color={text_color}; background_color={background_color}; font_size={font_size}px; path=/',
         'Location': '/lab4/cookies'
     }
     return '', 303, headers
