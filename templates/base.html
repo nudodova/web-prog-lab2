@@ -5,19 +5,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Анастасия Удодова. {% block lab %}{% endblock %}</title>
-    {% if request.cookies.get('color') %}
+    {% if request.cookies.get('text_color')  and request.cookies.get('background_color') and request.cookies.get('font-size') %}
     <style>
         body {
-            color: {{ request.cookies.get('color') }};
+            color: {{ request.cookies.get('text_color') }};
+            background-color: {{ request.cookies.get('background_color') }};
+            font-size: {{ request.cookies.get('font-size') }}px;
         }
     </style>
     {% endif %}
 </head>
-<style>
-    .error {
-    color: red;
-    }
-</style>
+
 <body>
     <header>
         WEB-программирование, 2 часть. {{ self.lab() }}
