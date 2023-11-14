@@ -52,8 +52,8 @@ def get_users():
 
 @lab5.route('/lab5/mainpage')
 def mainpage():
-    user_name = session.get('user_name')
-    return render_template('mainpage.html', user_name=user_name)
+    username = session.get('username')
+    return render_template('mainpage.html', username=username)
 
 @lab5.route('/lab5/register', methods=["GET", "POST"])
 def registerpage():
