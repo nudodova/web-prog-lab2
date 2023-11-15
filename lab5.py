@@ -213,3 +213,21 @@ def list_articles():
 def logout():
     session.clear()
     return redirect("/lab5/loginn")
+
+
+@lab5.route('/lab5/publish_article', methods=["POST"])
+def publish_article():
+    if 'username' in session:
+        article_id = request.form.get('article_id')
+       
+        article = Article.query.filter_by(id=article_id, author=session['username']).first()
+        if article:
+            article.published = True
+            db.session.commit()
+            return "Article published successfully"
+        else:
+            return "You do not have permission to publish this article"
+    else:
+        return redirect("/lab5/loginn")
+
+
