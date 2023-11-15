@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+
+{% block lab %} Лабораторная работа 5 {% endblock %}
+
+{% block main %}
+    <p>
+        <a style="font-weight: bold;">База знаний</a>
+        <a href="/lab5/articles">Просмотреть заметки</a>
+        <a href="/lab5/newtitle">Создать заметки</a>
+        <a href="/lab5/loginn">
+            <button class="log1" type="submit">Логин</button>
+        </a>
+        <a style="margin-left: 5%;" href="/lab5/register">
+            <button class="log2" type="submit">Регистрация</button>
+        </a>
+
+
+        {% if username %}
+            <a>
+            {{ username }}</a>
+        {% else %}
+            <a style="font-weight: bold;">Анон</a>
+        {% endif %}
+        </p>
+    </div>
+
+    <div class="oform_zam">
+        <h1>Новая заметка</h1>
+
+        {% for error in errors %}
+                {{ error }}
+            {% endfor %}
+
+        <form method="post" style="display: block;">
+            <div>
+                <input type="text" name="article_title" placeholder="Название статьи" style="width: 300px;
+                                                                                            margin-top: 15px;
+                                                                                            margin-bottom: 20px;">
+            </div> 
+            <div>                                                                                              
+                <textarea name="article_text" placeholder="Текст статьи" rows="20" style="width: 300px;
+                margin-top: 15px;
+                margin-bottom: 20px;"></textarea>
+            </div>
+                <input type="submit" value="Apply"/>
+            </div>
+        </form>
+    </div>
+
+
+{% endblock %}
