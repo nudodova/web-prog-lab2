@@ -1,6 +1,6 @@
 function getPrice() {
-    const milk = document.querySelector('[name=milk').checked;
-    const sugar = document.querySelector('[name=sugar').checked;
+    const milk = document.querySelector('[name=milk]').checked;
+    const sugar = document.querySelector('[name=sugar]').checked;
     const drink = document.querySelector('[name=drink]:checked').value;
 
     const obj = {
@@ -27,11 +27,12 @@ function getPrice() {
     })
 }
 
+
 function pay() {
     const milk = document.querySelector('[name=milk]').checked;
     const sugar = document.querySelector('[name=sugar]').checked;
     const drink = document.querySelector('[name=drink]:checked').value;
-    const cardnum = document.querySelector('[name=card]').value;
+    const cardNum = document.querySelector('[name=card]').value;
     const cvv = document.querySelector('[name=cvv]').value;
 
     const obj = {
@@ -40,14 +41,16 @@ function pay() {
             drink: drink,
             milk: milk,
             sugar: sugar,
-            card_num: cardnum,
+            card_num: cardNum,
             cvv: cvv
         }
     };
 
     fetch('/lab7/api', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json'},
+        headers: {
+            'Content-Type': 'application/json'
+        },
         body: JSON.stringify(obj)
     })
     .then(function(resp) {
@@ -63,11 +66,11 @@ function pay() {
     });
 }
 
-function cansel_pay() {
+function cancel_pay() {
     const milk = document.querySelector('[name=milk]').checked;
     const sugar = document.querySelector('[name=sugar]').checked;
     const drink = document.querySelector('[name=drink]:checked').value;
-    const cardnum = document.querySelector('[name=card]').value;
+    const cardNum = document.querySelector('[name=card]').value;
     const cvv = document.querySelector('[name=cvv]').value;
 
     const obj = {
@@ -76,20 +79,22 @@ function cansel_pay() {
             drink: drink,
             milk: milk,
             sugar: sugar,
-            card_num: cardnum,
+            card_num: cardNum,
             cvv: cvv
         }
     };
 
     fetch('/lab7/api', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json'},
+        headers: {
+            'Content-Type': 'application/json'
+        },
         body: JSON.stringify(obj)
     })
     .then(function(resp) {
         return resp.json();
     })
-    .then(function(resp) {
+    .then(function(data) {
         if (data.error) {
             document.querySelector('#pay-status').innerHTML = `Ошибка: ${data.error}`;
         } else {
