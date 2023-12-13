@@ -1,0 +1,63 @@
+{% extends "base.html" %}
+
+{% block lab %}Лабораторная работа 7{% endblock %}
+
+{% block script %}
+<script src="{{url_for('static', filename='lab7/drink.js') }}"></script>
+{% endblock %}
+
+{% block main %}
+    <h1>Заказ напитка</h1>
+
+    <div>Напиток:</div>
+    <label>
+        <input type="radio" value="coffee" name="drink" checked>Кофе
+    </label>
+    <label>
+        <input type="radio" value="black-tea" name="drink" checked>Черный чай
+    </label>
+    <label>
+        <input type="radio" value="green-tea" name="drink" checked>Зеленый чай
+    </label>
+
+    <div>Добавки:</div>
+    <label>
+        <input type="checkbox" name="milk" checked>Молоко
+    </label>
+    <label>
+        <input type="checkbox" name="sugar" checked>Сахар
+    </label>
+
+    <div>
+        <button onclick="getPrice()">Рассчитать цену</button>
+    </div>
+
+    <div id="price"></div>
+
+    <div id="pay" style="display: none;">
+        <div>Номер банковской карты:</div>
+        <label>
+            <input type="text" name="card">
+        </label>
+
+        <div>Имя держателя карты:</div>
+        <label>
+            <input type="text" name="name">
+        </label>
+
+        <div>Номер CVV:</div>
+        <label>
+            <input type="text" name="cvv" size="3">
+        </label>
+
+        <div>
+            <button onclick="pay()">Оплатить</button>
+        </div>
+    </div>
+
+    <div id="pay-status"></div>
+
+    <div>
+        <button onclick="cancel_pay()">Отмена оплаты</button>
+    </div>
+{% endblock %}
