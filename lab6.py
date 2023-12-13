@@ -91,11 +91,14 @@ def login():
 
     return render_template("loginn2.html")
 
-@lab6.route("/lab6/articles")
+@lab6.route("/lab6/articles", methods = ['GET', 'POST'])
 @login_required
-def articles_list():
-    my_articles = articles.query.filter_by(user_id=current_user.id).all()
-    return render_template("list_articles.html", articles=my_articles)
+def view_articles():
+    username_form = request.form.get('username')
+    my_articles = articles.query.filter((articles.user_id == current_user.id)).all()
+    print(my_articles)
+    return render_template('list_articles.html', articles=my_articles, username_form = username_form)
+
 
 @lab6.route("/lab6/newtitle", methods=["GET", "POST"])
 @login_required
@@ -124,3 +127,20 @@ def createArticle():
 def logout():
     logout_user()
     return redirect('/lab6/login')
+
+@lab6.route("/lab6/articles/<int:article_id>", methods=['GET', 'POST'])
+def getArticle(article_id):
+    if current_user.is_authenticated:
+        article = articles.query.filter_by(id=article_id).first()
+
+        if article:
+            if article.user_id == current_user.id or article.is_public:
+                text = article.article_text.splitlines()
+                likes_count = article.likes
+                return render_template("6articleN.html", article_text=text, article_title=article.title, username=current_user.username, favorite=article.is_favorite, likes_count=likes_count)
+            else:
+                return "У вас нет доступа к этой статье"
+        else:
+            return "Статья не найдена"
+    else:
+        return "Пожалуйста, войдите, чтобы увидеть эту статью"

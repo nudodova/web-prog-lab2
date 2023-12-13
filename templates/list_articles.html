@@ -22,12 +22,15 @@
         {% else %}
             <div style="font-weight: bold;">Anon</div>
         {% endif %}
+
+
+        <h1>Статьи</h1>
+        <ul>
+            {% for article in articles %}
+            <li>{{ article.title }} <a href="/lab6/articles/{{ article.id }}">/lab6/articles/{{ article.id }}</a></li>
+            {% endfor %}
+        </ul>
     </div>
 
-    <div>
-        <h1>{{ article_title }}</h1>
-        {% for paragraph in article_text %}
-        <p> {{ paragraph }} </p>
-        {% endfor %}
-    </div>
+    
 {% endblock %}
