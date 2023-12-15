@@ -14,7 +14,9 @@
         }
     </style>
     {% endif %}
-    {% block script %}{% endblock %}
+    {% block script %}
+    <script src="{{ url_for('static', filename='lab7/drink.js') }}"></script>
+    {% endblock %}
 </head>
 
 <body>
