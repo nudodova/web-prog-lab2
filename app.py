@@ -12,8 +12,14 @@ from Db.models import users
 from flask_login import LoginManager
 from lab7 import lab7
 from lab8 import lab8
+from lab9 import lab9
 
 app = Flask(__name__)
+
+@app.errorhandler(404)
+def not_found(err):
+    return "Нет такой страницы", 404
+
 app.secret_key = "123"
 user_db = "udodova_anastasia_knowledge_base"
 host_ip = "127.0.0.1"
@@ -43,3 +49,4 @@ app.register_blueprint(lab5)
 app.register_blueprint(lab6)
 app.register_blueprint(lab7)
 app.register_blueprint(lab8)
+app.register_blueprint(lab9)

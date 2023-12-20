@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block lab %}Лабораторная работа 9{% endblock %}
+
+{% block main %}
+<h1>Открытка</h1>
+<div>
+    <img src="/static/Christmas-Santa-Claus-PNG-Pic.png" style="width: 150px; height: 200px;">
+</div>
+<p>
+    {% if recipient_gender == 'male' %}
+        С Новым 2024 годом, {{ recipient_name }}! Желаю быть счастливым!
+    {% else %}
+    С Новым 2024 годом, {{ recipient_name }}! Желаю быть счастливой!
+    {% endif %} 
+</p>
+<p>
+    С наилучшими пожеланиями, {{ sender_name }}
+</p>
+{% endblock %}
