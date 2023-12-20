@@ -10,6 +10,10 @@ def not_found(e):
     return render_template('lab9/error500.html'), 500
 
 
+@lab9.route('/lab9/500')
+def oshibk():
+    abort(500)
+
 @lab9.route('/lab9/', methods=['GET', 'POST'])
 def main():
 

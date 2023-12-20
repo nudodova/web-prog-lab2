@@ -137,7 +137,7 @@ def getArticle(article_id):
             if article.user_id == current_user.id or article.is_public:
                 text = article.article_text.splitlines()
                 likes_count = article.likes
-                return render_template("6articleN.html", article_text=text, article_title=article.title, username=current_user.username, favorite=article.is_favorite, likes_count=likes_count)
+                return render_template("articleN.html", article_text=text, article_title=article.title, username=current_user.username)
             else:
                 return "У вас нет доступа к этой статье"
         else:

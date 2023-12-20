@@ -1,19 +1,21 @@
 {% extends "base.html" %}
 
-{% block lab %} Лабораторная работа 5 {% endblock %}
+{% block lab %} Лабораторная работа 6 {% endblock %}
 
 {% block main %}
     <p>
         <a style="font-weight: bold;">База знаний</a>
-        <a href="/lab5/articles">Просмотреть заметки</a>
-        <a href="/lab5/newtitle">Создать заметки</a>
-        <a href="/lab5/loginn">
+        <a href="/lab6/articles">Просмотреть заметки</a>
+        <a href="/lab6/newtitle">Создать заметки</a>
+        <a href="/lab6/login">
             <button class="log1" type="submit">Логин</button>
         </a>
-        <a style="margin-left: 5%;" href="/lab5/register">
+        <a style="margin-left: 5%;" href="/lab6/register">
             <button class="log2" type="submit">Регистрация</button>
         </a>
-    
+        <form action="/lab6/logout">
+            <button class="button_user" type="submit">Выйти</button>
+        </form>
 
         {% if username %}
             <a>
